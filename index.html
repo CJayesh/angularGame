@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hollywood Bollywood</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="w3.css">
+	<style type="text/css">
+		div{
+			text-align: center;
+			font-size: 25px;
+		}
+		header{
+			font-size: 5vw;
+		}
+	</style>
+</head>
+<body ng-app="HangmanApp" ng-controller="GameController">
+<div class="w3-container">
+	<header class="w3-teal">Movie Name Guessing Game</header><br>
+
+	<div>Player 1<br>Enter Movie Name:
+		<input type="text" name="movie" ng-model="movie">
+		<button ng-click="movieChosen()" class="class="w3-button w3-round-xlarge w3-indigo">Start</button>
+	</div>
+	<hr>
+
+	<div>Player 2<br>You Have to guess:<span>{{displayWord}}</span></div>
+	<div>
+		
+		<div>
+			<input type="text" name="guess" ng-model="input.letter" style="margin-bottom:10px "><br>
+			<button ng-click="letterChosen()" class="w3-button w3-round-xlarge w3-indigo">Submit</button>
+		</div>
+
+	</div>
+
+	<div>
+		Guesses left::<span class="w3-circle w3-button w3-white w3-border w3-border-blue">{{guesses}}</span>
+	</div>
+	<div>
+		Incorrect Guesses ::<span ng-repeat="letter in inCorrectLettersChosen">{{letter}}</span>
+	</div>
+	<div>
+		Correct Guesses ::<span ng-repeat="letter in correctLettersChosen">{{letter}}</span>
+	</div>
+	<button class="w3-button w3-green w3-round-xlarge" ng-click='newGame()'>New Game</button>
+</div>
+</body>
+</html>
